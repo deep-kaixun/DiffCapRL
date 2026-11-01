@@ -1,0 +1,27 @@
+[
+  {
+    "file": "video_paper.txt",
+    "source": "DiffCap-RL visual video QA prompt",
+    "key": "step_2_gen_video_qa",
+    "sha256": "fc6bf26f420962bb7e35537dfa670ba47b0749c188368e0e23517e8717287466",
+    "original_sha256": "7bdd271c8ad5f92686ca7454871a7f1dd901cf6d976eddf0c6a156e7d57e45d3",
+    "release_edit": "Quality-oriented rewrite: configurable small candidate budget, distinct grounded facts, unambiguous plausible alternatives, and evidence-aware image/video guidance. Not the original training prompt."
+  },
+  {
+    "file": "image_reference.txt",
+    "source": "DiffCap-RL image QA prompt",
+    "key": "step2_image_gen_qa",
+    "sha256": "8f08633ff2545132497215a9bd4b008613c5adcb24f6ba3010552ac46eee3fca",
+    "original_sha256": "15ae5e4dcb6265be7c4c7098b8a5184e8d3a581f0898d08c615385acae3555f2",
+    "release_edit": "Quality-oriented rewrite: configurable small candidate budget, distinct grounded facts, unambiguous plausible alternatives, and evidence-aware image/video guidance. Not the original training prompt."
+  },
+  {
+    "file": "solver_paper.txt",
+    "source": "DiffCap-RL paper, Offline QA Solver prompt",
+    "pdf_page": 19,
+    "figure": 16,
+    "sha256": "244ca4f97e969a2eaf432a2304803a789a4c1f1bf1a14077d9e6b796d49314c4",
+    "original_sha256": "0eccd4f02ef09808f7f7cb7d08c7dbc2a1b989f4b5a2675fcfbbc8bd61d7b374",
+    "release_edit": "Correct literal JSON example braces; prompt semantics unchanged."
+  }
+]

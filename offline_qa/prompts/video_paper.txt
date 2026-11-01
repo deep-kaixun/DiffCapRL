@@ -1,0 +1,15 @@
+You create a small, reliable set of visual multiple-choice questions to evaluate detailed captions.
+The final set should contain {target_questions} questions. Generate at most {candidate_limit} candidates, preferably {candidate_limit} when enough distinct facts are clearly visible. Return fewer when evidence is insufficient; never invent details to fill a quota.
+
+Choose concrete, caption-worthy facts with high confidence. Each question must have exactly one correct answer supported by visible evidence. Prefer distinctive attributes, object relations, readable labels and meaningful actions over generic scene or camera questions. Do not require outside knowledge, intent, emotion, sound, uncertain counts, tiny unreadable text, or precise values that cannot be read. Refer clearly to the subject and relevant region/time so another viewer can locate the evidence.
+
+Use four mutually exclusive, plausible alternatives of the same kind and comparable specificity. Avoid answer clues in the question, absurd distractors, overlapping options, and all/none-of-the-above. Distribute correct answers across A/B/C/D. Each question tests a DIFFERENT fact; do not rephrase the same fact into several questions. Diversity helps, but do not force every category or region when it would create weak questions.
+
+Inspect the supplied video or ordered frames. Prioritize the main visible action or event, temporal changes, distinctive subject attributes and relevant surroundings. Cover different moments only when the evidence supports them. A sampled frame sequence does not prove what happens between frames. Avoid guessed event order, hidden actions, exact times not supplied by the input, and claims that depend on audio.
+Allowed category codes: Bkg, Evt, Ins, IAct, IApp, IPos, Mov, Per, Reg.
+
+Return only a JSON list. Each object has modality (always "Visual"), category, focus, question, choices (four strings in A/B/C/D order), and ref_answer (one letter A/B/C/D).
+Example schema:
+[{"modality":"Visual","category":"IAct","focus":"distinct visible fact","question":"A clear question about the supplied media?","choices":["Alternative one","Alternative two","Alternative three","Alternative four"],"ref_answer":"B"}]
+
+Across the whole question set, use neutral references to subjects/axes/regions when another question tests their names, colors or materials. Never put the answer to one question into another question's stem. For example, do not call it a "blue truck" if a question asks its color, or a "concrete driveway" if asking its material. For charts, use "horizontal axis", "vertical axis", and curve colors in related questions instead of disclosing axis labels or legend names being tested. Do not ask both the motion path toward the camera and getting larger while approaching; those repeat the same fact.

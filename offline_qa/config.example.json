@@ -1,0 +1,105 @@
+{
+  "protocol": "offline-qa-visual-v2",
+  "seed": 42,
+  "workers": 8,
+  "request_attempts": 3,
+  "timeout_seconds": 120,
+  "retry_delay_seconds": 1,
+  "captions_per_media": 8,
+  "min_questions": 6,
+  "target_questions": {
+    "image": 8,
+    "video": 8
+  },
+  "difficulty_weights": {
+    "easy": 0.2,
+    "medium": 0.6,
+    "hard": 0.2
+  },
+  "expand_sources": true,
+  "clients": {
+    "offline_qa_maker": {
+      "model": "gemini-3-flash-preview",
+      "base_url_env": "QA_MAKER_BASE_URL",
+      "api_key_env": "QA_MAKER_API_KEY",
+      "temperature": 0.7,
+      "max_tokens": 16384,
+      "extra_body": {
+        "reasoning_effort": "minimal"
+      },
+      "revision": "",
+      "video_input": "frames"
+    },
+    "blind_solver": {
+      "model": "qwen3-235b-a22b-thinking-2507",
+      "base_url_env": "QA_TEXT_BASE_URL",
+      "api_key_env": "QA_TEXT_API_KEY",
+      "temperature": 0,
+      "max_tokens": 256,
+      "extra_body": {},
+      "revision": ""
+    },
+    "dependency_checker": {
+      "model": "qwen3-235b-a22b-thinking-2507",
+      "base_url_env": "QA_TEXT_BASE_URL",
+      "api_key_env": "QA_TEXT_API_KEY",
+      "temperature": 0,
+      "max_tokens": 8192,
+      "extra_body": {},
+      "revision": ""
+    },
+    "captioner": {
+      "model": "Qwen/Qwen3-VL-4B-Instruct",
+      "base_url_env": "QA_CAPTIONER_BASE_URL",
+      "api_key_env": "QA_CAPTIONER_API_KEY",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "extra_body": {},
+      "revision": ""
+    },
+    "offline_qa_solver": {
+      "model": "qwen3-235b-a22b-thinking-2507",
+      "base_url_env": "QA_TEXT_BASE_URL",
+      "api_key_env": "QA_TEXT_API_KEY",
+      "temperature": 0,
+      "max_tokens": 2048,
+      "extra_body": {},
+      "revision": ""
+    },
+    "weak_verifier": {
+      "model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "base_url_env": "QA_WEAK_VERIFIER_BASE_URL",
+      "api_key_env": "QA_WEAK_VERIFIER_API_KEY",
+      "temperature": 0,
+      "max_tokens": 4096,
+      "extra_body": {},
+      "revision": ""
+    },
+    "teacher_1": {
+      "model": "gemini-3-pro-preview",
+      "base_url_env": "QA_TEACHER_1_BASE_URL",
+      "api_key_env": "QA_TEACHER_1_API_KEY",
+      "temperature": 0,
+      "max_tokens": 16384,
+      "extra_body": {},
+      "revision": ""
+    },
+    "teacher_2": {
+      "base_url_env": "QA_TEACHER_2_BASE_URL",
+      "api_key_env": "QA_TEACHER_2_API_KEY",
+      "temperature": 0,
+      "max_tokens": 8192,
+      "extra_body": {},
+      "revision": "",
+      "model_env": "QA_TEACHER_2_MODEL",
+      "model_label": "Seed 2.1 Pro (set the actual API model or deployment ID)"
+    }
+  },
+  "blind_permutation_checks": 3,
+  "verification_strategy": "full_teacher",
+  "candidate_reserve": 2,
+  "video_input": "url",
+  "video_fps": 2,
+  "max_video_frames": 48,
+  "pool_audit": true
+}
