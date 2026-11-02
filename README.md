@@ -1,6 +1,6 @@
 # DiffCap-RL
 
-Image/video captioning with [DiffCap-RL 4B](https://huggingface.co/fengyao123/DiffCapRL-4B), Offline QA construction, and [VideoCapArena](https://huggingface.co/datasets/fengyao123/VideoCapArena) evaluation.
+Image/video captioning with [DiffCap-RL 4B](https://huggingface.co/fengyao123/DiffCapRL-4B), Offline QA construction, and [VideoCapArena](https://huggingface.co/datasets/lalahaha1/VideoCapArena) evaluation.
 
 ## Caption inference
 
