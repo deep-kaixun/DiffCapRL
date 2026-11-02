@@ -1,10 +1,10 @@
 # VideoCapArena
 
-[Download VideoCapArena](https://huggingface.co/datasets/fengyao123/VideoCapArena): 100 English caption pairs with human preferences.
+[Download VideoCapArena](https://huggingface.co/datasets/lalahaha1/VideoCapArena): 100 English caption pairs with human preferences.
 
 ```bash
 pip install huggingface-hub
-python -c "from huggingface_hub import snapshot_download; snapshot_download('fengyao123/VideoCapArena', repo_type='dataset', local_dir='datasets/videocaparena')"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('lalahaha1/VideoCapArena', repo_type='dataset', local_dir='datasets/videocaparena')"
 ```
 
 `data/test.jsonl` contains the video `media_path`, two `captions`, and human `best_idx`. Choose a caption without exposing the human label to your method: **0 = captions[0] (A), 1 = captions[1] (B)**.
